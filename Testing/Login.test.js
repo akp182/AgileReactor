@@ -8,3 +8,23 @@ beforeAll(async () => {
         useCreateIndex: true
     });
 });
+
+afterAll(async () => {
+
+    await mongoose.connection.close();
+});
+
+describe('User Schema test anything', () => {
+    // the code below is for insert testing
+    it('Add User testing anything', () => {
+        const user = {
+            'email': 'shusan',
+            'password': 'tandukar',
+            'name': 'shusan'
+        }
+
+        return User.create(user)
+            .then((pro_ret) => {
+                expect(pro_ret.email).toEqual('shusan');
+            });
+    });
