@@ -28,3 +28,13 @@ describe('User Schema test anything', () => {
                 expect(pro_ret.email).toEqual('shusan');
             });
     });
+    //test for update
+    it('to test the update', async () => {
+
+        return User.findOneAndUpdate({ email: 'shusan' }, { $set: { email: 'test' } })
+            .then((pp) => {
+                expect(pp.password).toEqual('tandukar')
+            })
+    });
+
+})
