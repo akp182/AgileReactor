@@ -31,3 +31,13 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
     );
 };
 
+Post.propTypes = {
+  getPost: PropTypes.func.isRequired,
+  post: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  post: state.post
+});
+
+export default connect(mapStateToProps, { getPost })(Post);
