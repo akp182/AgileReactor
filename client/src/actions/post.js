@@ -117,3 +117,22 @@ export const getPost = id => async dispatch => {
   }
 };
 
+// Add comment
+export const addComment = (postId, formData) => async dispatch => {
+  try {
+    const res = await api.post(`/posts/comment/${postId}`, formData);
+
+    dispatch({
+      type: ADD_COMMENT,
+      payload: res.data
+    });
+
+    dispatch(setAlert('Comment Added', 'success'));
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
