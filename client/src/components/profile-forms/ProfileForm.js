@@ -198,20 +198,60 @@ const ProfileForm = ({
               />
             </div>
 
+            <div className="form-group social-input">
+              <i className="fab fa-youtube fa-2x" />
+              <input
+                type="text"
+                placeholder="YouTube URL"
+                name="youtube"
+                value={youtube}
+                onChange={onChange}
+              />
+            </div>
 
+            <div className="form-group social-input">
+              <i className="fab fa-linkedin fa-2x" />
+              <input
+                type="text"
+                placeholder="Linkedin URL"
+                name="linkedin"
+                value={linkedin}
+                onChange={onChange}
+              />
+            </div>
+
+            <div className="form-group social-input">
+              <i className="fab fa-instagram fa-2x" />
+              <input
+                type="text"
+                placeholder="Instagram URL"
+                name="instagram"
+                value={instagram}
+                onChange={onChange}
+              />
+            </div>
+          </Fragment>
+        )}
+
+        <input type="submit" className="btn btn-primary my-1" />
+        <Link className="btn btn-light my-1" to="/dashboard">
+          Go Back
+        </Link>
+      </form>
+    </Fragment>
   );
 };
 
 ProfileForm.propTypes = {
-              createProfile: PropTypes.func.isRequired,
+  createProfile: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-              profile: state.profile
+  profile: state.profile
 });
 
-export default connect(mapStateToProps, { createProfile, getCurrentProfile})(
+export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
   ProfileForm
 );
