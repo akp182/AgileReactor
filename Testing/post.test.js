@@ -14,3 +14,17 @@ afterAll(async () => {
     await mongoose.connection.close();
 });
 
+describe('Post Schema test anything', () => {
+    // the code below is for insert testing
+    it('Add Post testing anything', () => {
+        const post = {
+            'user': '6023b1b40a94b63fb0c07033',
+            'text': 'New Post',
+            'name': 'shusan'
+        };
+
+        return Post.create(post)
+            .then((pro_ret) => {
+                expect(pro_ret.text).toEqual('New Post');
+            });
+    });
