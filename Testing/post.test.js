@@ -28,3 +28,13 @@ describe('Post Schema test anything', () => {
                 expect(pro_ret.text).toEqual('New Post');
             });
     });
+    // test for update
+    it('to test the update', async () => {
+
+        return Post.findOneAndUpdate({ text: 'New Post' }, { $set: { text: 'test' } })
+            .then((pp) => {
+                expect(pp.text).toEqual('New Post')
+            })
+    });
+
+})
