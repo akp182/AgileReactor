@@ -37,3 +37,10 @@ describe('Profile Schema test anything', () => {
                 expect(pp.company).toEqual('Softwarica')
             })
     });
+    // the code below is for delete testing
+    it('to test the delete product is working or not', async () => {
+        const status = await Profile.deleteMany();
+        // const status = await Profile.deleteOne({ _id: "5f19438de3070525782ebac7" });
+        expect(status.ok).toBe(1);
+    });
+})
