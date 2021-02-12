@@ -29,3 +29,18 @@ describe('Profile Schema test anything', () => {
                 expect(pro_ret.status).toEqual('Manager');
             });
     });
+    // test for update
+    it('to test the update', async () => {
+
+        return Profile.findOneAndUpdate({ status: 'Manager' }, { $set: { status: 'Manager1' } })
+            .then((pp) => {
+                expect(pp.status).toEqual('Manager')
+            })
+    });
+    // the code below is for delete testing
+    it('to test the delete product is working or not', async () => {
+        const status = await Profile.deleteMany();
+        // const status = await Profile.deleteOne({ _id: "5f19438de3070525782ebac7" });
+        expect(status.ok).toBe(1);
+    });
+})
