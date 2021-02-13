@@ -14,3 +14,26 @@ afterAll(async () => {
     await mongoose.connection.close();
 });
 
+describe('Profile Schema test anything', () => {
+    // the code below is for insert testing
+    it('Add Profile testing anything', () => {
+        const profile = {
+            'company': 'Softwarica',
+            'status': 'manager',
+            'skills': 'testing',
+
+        };
+
+        return Profile.create(profile)
+            .then((pro_ret) => {
+                expect(pro_ret.company).toEqual('Softwarica');
+            });
+    });
+    // test for update
+    it('to test the update', async () => {
+
+        return Profile.findOneAndUpdate({ company: 'Softwarica' }, { $set: { company: 'Softwarica1' } })
+            .then((pp) => {
+                expect(pp.company).toEqual('Softwarica')
+            })
+    });
