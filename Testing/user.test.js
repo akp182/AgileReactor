@@ -36,5 +36,10 @@ describe('Post Schema test anything', () => {
                 expect(pp.name).toEqual('shusan')
             })
     });
-
+    // the code below is for delete testing
+    it('to test the delete product is working or not', async () => {
+        const status = await Post.deleteMany();
+        // const status = await Post.deleteOne({ _id: "5f19438de3070525782ebac7" });
+        expect(status.ok).toBe(1);
+    });
 })
